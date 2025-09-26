@@ -1,0 +1,16 @@
+services:
+    php:
+        container_name: phd-php
+        image: webdevops/php-nginx:8.4
+        working_dir: ${CONTAINER_APP_DIR}
+        expose:
+            - '9000'
+        ports:
+            - "${NGINX_HOST_HTTP_PORT}:80"
+        environment:
+            - WEB_DOCUMENT_ROOT=${CONTAINER_APP_DIR}
+            - WEB_DOCUMENT_INDEX=public/index.php
+        volumes:
+            - ..:${CONTAINER_APP_DIR}
+volumes:
+    cr_db:
