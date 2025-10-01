@@ -16,5 +16,26 @@ services:
     App\:
         resource: '../src/'
 
-    # add more service definitions when explicit configuration is needed
-    # please note that last definitions always *replace* previous ones
+    redis:
+        class: 'RedisConnection'
+        factory: [ 'Symfony\Component\Cache\Adapter\RedisAdapter', createConnection ]
+        arguments:
+            - '%env(REDIS_DSN)%'
+    lock_store:
+        class: 'Symfony\Component\Lock\Store\RedisStore'
+        arguments:
+            - '@redis'
+    lock_factory:
+        class: 'Symfony\Component\Lock\LockFactory'
+        arguments:
+            - '@lock_store'
+    App\Service\DataProvider:
+        class: 'App\Service\DataProvider'
+        arguments:
+            - '%kernel.project_dir%'
+    App\Service\DatasetProcessor:
+        class: 'App\Service\DatasetProcessor'
+        arguments:
+            - '@App\Service\DataProvider'
+            - '@lock_factory'
+            - '@redis'

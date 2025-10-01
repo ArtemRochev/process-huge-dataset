@@ -1,0 +1,57 @@
+[
+    {
+        "name": "Mayo Tate",
+        "isActive": false,
+        "age": 34,
+        "eyeColor": "brown",
+        "gender": "male",
+        "email": "mayotate@bostonic.com",
+        "phone": "+1 (924) 481-3597",
+        "address": "922 Ingraham Street, Savage, Nebraska, 6432",
+        "registered": "2023-04-23T09:16:17 -02:00"
+    },
+    {
+        "name": "Lowery Barrera",
+        "isActive": false,
+        "age": 23,
+        "eyeColor": "green",
+        "gender": "male",
+        "email": "lowerybarrera@bostonic.com",
+        "phone": "+1 (984) 507-3090",
+        "address": "780 Hart Place, Oberlin, Guam, 157",
+        "registered": "2019-12-17T04:30:16 -01:00"
+    },
+    {
+        "name": "Farrell Holmes",
+        "isActive": true,
+        "age": 29,
+        "eyeColor": "green",
+        "gender": "male",
+        "email": "farrellholmes@bostonic.com",
+        "phone": "+1 (891) 580-2095",
+        "address": "670 Lawn Court, Elbert, Tennessee, 3179",
+        "registered": "2022-09-22T12:39:38 -02:00"
+    },
+    {
+        "name": "Nixon Suarez",
+        "isActive": true,
+        "age": 31,
+        "eyeColor": "blue",
+        "gender": "male",
+        "email": "nixonsuarez@bostonic.com",
+        "phone": "+1 (928) 509-2638",
+        "address": "438 Mill Road, Torboy, Oregon, 6224",
+        "registered": "2022-01-06T09:42:51 -01:00"
+    },
+    {
+        "name": "Newton Ryan",
+        "isActive": true,
+        "age": 28,
+        "eyeColor": "green",
+        "gender": "male",
+        "email": "newtonryan@bostonic.com",
+        "phone": "+1 (813) 521-2970",
+        "address": "702 Melrose Street, Marenisco, California, 8241",
+        "registered": "2014-02-17T05:25:33 -01:00"
+    }
+]
