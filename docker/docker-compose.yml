@@ -23,5 +23,3 @@ services:
         image: redis:latest
         networks:
             - phd-net
-volumes:
-    cr_db:
