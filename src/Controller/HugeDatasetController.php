@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Exception\InProgressException;
+use App\Response\DatasetResponse;
 use App\Service\DatasetProcessor;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Response;
@@ -19,19 +20,12 @@ class HugeDatasetController
             try {
                 $dataset = $datasetSupplier->getDataset();
             } catch (InProgressException $e) {
-                if ($dataset) {
-                    return new JsonResponse(
-                        json_decode($dataset->getData(), true),
-                        Response::HTTP_OK,
-                        ['X-Cache-Status' => 'STALE']
-                    );
+                if (!$dataset) {
+                    return new JsonResponse([], Response::HTTP_ACCEPTED);
                 }
-
-                return new JsonResponse([], Response::HTTP_ACCEPTED);
             }
         }
 
-
-        return new JsonResponse(json_decode($dataset->getData(), true));
+        return new DatasetResponse($dataset);
     }
 }
