@@ -12,13 +12,13 @@ use Symfony\Component\Routing\Attribute\Route;
 class HugeDatasetController
 {
     #[Route('/process-huge-dataset', methods: ['GET'])]
-    public function processHugeDataset(DatasetProcessor $datasetSupplier): JsonResponse
+    public function processHugeDataset(DatasetProcessor $datasetProcessor): JsonResponse
     {
-        $dataset = $datasetSupplier->getDatasetFromCache();
+        $dataset = $datasetProcessor->getDatasetFromCache();
 
         if (!$dataset || $dataset->isStale()) {
             try {
-                $dataset = $datasetSupplier->getDataset();
+                $dataset = $datasetProcessor->getDataset();
             } catch (InProgressException $e) {
                 if (!$dataset) {
                     return new JsonResponse([], Response::HTTP_ACCEPTED);
